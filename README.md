@@ -18,10 +18,22 @@ To run Docker API Boilerplate in your machine, you must have installed:
 - [Node.JS 12+](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com/)
 
-### Steps to run in development environment
+### Steps to run
 
-Add the required secrets into `./secrets` directory. Detailed instructions for this step is available [here](./secrets).
+For any environment: copy `.env.example` to `.env.[environment]`, where `[environment]` is one of: `dev`, `prod`, `test`.
+
+#### Run for development
+
+Make sure you setup `.env.dev`.
 
 Run `yarn` to install dependencies.
 
 Run `yarn docker:dev` to run the server and databases.
+
+#### Run for tests
+
+Make sure you setup `.env.test`.
+
+Run `yarn` to install dependencies.
+
+Run `yarn test` to run the tests.
