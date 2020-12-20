@@ -1,4 +1,4 @@
-# Docker API Boilerplate
+# TypeScript Docker Rest API Boilerplate
 
 <p align="center">
   <strong>Runs on</strong>
