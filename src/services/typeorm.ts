@@ -6,10 +6,10 @@ const config = getConfig();
 
 const connectionManager = getConnectionManager();
 connectionManager.create({
-  type: "mysql",
+  type: "postgres",
   host: config.dbHost,
-  port: 3306,
-  username: "root",
+  port: parseInt(config.dbPort),
+  username: config.dbUser,
   password: config.dbPassword,
   database: config.dbName,
   entities: [

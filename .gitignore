@@ -70,7 +70,9 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.dev
 .env.test
+.env.prod
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -107,3 +109,6 @@ docker-compose.override.yml
 *.secret
 build
 ormconfig.json
+
+# Generated Data
+data

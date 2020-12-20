@@ -1,25 +1,15 @@
+import dotenv from "dotenv";
 import fs from "fs";
-import yaml from "js-yaml";
 
-const mysqlPassword = fs.readFileSync(
-  "./secrets/mysql_password.secret",
-  "utf8"
-);
-
-const dockerComposeContent = fs.readFileSync(
-  "./docker/docker-compose.dev.yml",
-  "utf8"
-);
-const dockerCompose = yaml.safeLoad(dockerComposeContent) as any;
-const mysql = dockerCompose.services.mysql;
+dotenv.config({ path: ".env.dev" });
 
 const configContent = `{
-  "type": "mysql",
+  "type": "postgres",
   "host": "localhost",
-  "port": ${mysql.ports[0].split(":")[0]},
-  "username": "root",
-  "password": "${mysqlPassword}",
-  "database": "${mysql.environment.MYSQL_DATABASE}",
+  "port": ${process.env.POSTGRES_PORT},
+  "username": "${process.env.POSTGRES_USER}",
+  "password": "${process.env.POSTGRES_PASSWORD}",
+  "database": "${process.env.POSTGRES_DB_NAME}",
   "migrationsTableName": "migrations",
   "entities": [
     "src/entity/**/*.ts"

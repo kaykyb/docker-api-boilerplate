@@ -12,18 +12,15 @@ export interface DefaultConfig {
   dbHost: string;
   dbPassword: string;
   dbName: string;
+  dbUser: string;
+  dbPort: string;
   redisHost: string;
-  emailAccount: string;
-  mailgunDomain: string;
-  mailgunApiKey: string;
-  privateKey: string;
-  publicKey: string;
 }
 
 export enum Service {
   Server = "Server",
   Redis = "Redis",
-  MySQL = "MySQL",
+  Postgres = "Postgres",
   Unknown = "Unknown",
 }
 
