@@ -1,13 +1,4 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  CreateDateColumn,
-  UpdateDateColumn,
-  OneToMany,
-} from "typeorm";
-import { RefreshToken } from "./RefreshToken";
-import { IsEmail } from "class-validator";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
 export class User {
@@ -16,20 +7,4 @@ export class User {
 
   @Column({ nullable: true })
   name: string | null;
-
-  @Column({ unique: true })
-  @IsEmail()
-  email: string;
-
-  @Column()
-  isActive: boolean;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
-
-  @OneToMany((type) => RefreshToken, (rt) => rt.user)
-  refreshTokens: RefreshToken[];
 }

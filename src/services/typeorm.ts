@@ -1,8 +1,6 @@
 import getConfig from "@root/config";
 import { getConnectionManager } from "typeorm";
 import path from "path";
-import { Claimer } from "@root/entity/Claimer";
-import { getClaimers } from "@root/config/apps";
 
 const config = getConfig();
 
@@ -34,11 +32,8 @@ export const startDatabase = async () => {
     await db.connect();
   } catch {
     await startDatabase();
+    return;
   }
-
-  // Seed Apps
-  const claimerRepo = db.getRepository(Claimer);
-  await claimerRepo.save(getClaimers());
 };
 
 export const endDatabase = async () => {

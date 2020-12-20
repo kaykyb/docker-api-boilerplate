@@ -1,5 +1,4 @@
-import { RefreshTokenData } from "@root/apis/v1/login/shared";
-import { Claimer } from "@root/entity/Claimer";
+import { User } from "@root/entity/User";
 import { Request, Response } from "express";
 
 export interface EnvConfig {
@@ -42,12 +41,8 @@ export enum PermissionLevel {
 
 export interface PublicRequest extends Request {}
 
-export interface PublicRequestWithClaimer extends PublicRequest {
-  claimer: Claimer;
-}
-
-export interface PrivateRequest extends PublicRequestWithClaimer {
-  user: RefreshTokenData;
+export interface PrivateRequest extends PublicRequest {
+  user: User;
 }
 
 export interface CommonResponse extends Response {}
